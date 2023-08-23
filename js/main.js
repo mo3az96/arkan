@@ -3,6 +3,12 @@ $(window).on("load", function () {
     $(this).remove();
     $("body").removeClass("overflow");
   });
+
+  var checked = localStorage.getItem("mode");
+  document.body.classList.add(checked);
+  if (checked == "darkMode" || scheme) {
+    document.querySelectorAll(".mode-switch input")[0].checked = checked;
+  }
 });
 $(document).ready(function () {
   /************************************ Fixed Header ************************************/
@@ -263,3 +269,13 @@ $(document).ready(function () {
     });
   }
 });
+
+function modeSwitch(checkBox) {
+  if (checkBox.checked == true) {
+    document.body.classList.add("darkMode");
+    localStorage.setItem("mode", "darkMode");
+  } else {
+    document.body.classList.remove("darkMode");
+    localStorage.setItem("mode", "light");
+  }
+}

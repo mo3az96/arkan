@@ -1,9 +1,14 @@
+:root {
+  --mode-bg: #fff;
+  --text-color: #043750;
+}
+
 body {
   position: relative;
-  background-color: #fff;
+  background-color: var(--mode-bg);
 }
 body::-webkit-scrollbar {
-  background-color: #fff;
+  background-color: var(--mode-bg);
   width: 7px;
   height: 0px;
 }
@@ -117,7 +122,7 @@ html[dir=ltr] body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
+  background-color: var(--mode-bg);
   z-index: 9999;
 }
 .preloader .preloader-flex {
@@ -207,7 +212,7 @@ html[dir=ltr] body {
 
 .header-btn {
   border: 2px solid rgba(255, 255, 255, 0.302);
-  width: 150px;
+  width: 125px;
   height: 45px;
   display: flex;
   align-items: center;
@@ -222,7 +227,7 @@ html[dir=ltr] body {
 .header-btn:hover {
   border-color: #ceaa41;
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
 }
 @media (max-width: 767px) {
   .header-btn {
@@ -230,6 +235,71 @@ html[dir=ltr] body {
     height: 35px;
     font-size: 14px;
   }
+}
+
+.mode-switch {
+  position: relative;
+  margin-inline-end: 29px;
+}
+.mode-switch .bg {
+  background-color: #e6e6e6;
+  width: 53px;
+  height: 18px;
+  border-radius: 9px;
+  transition: all 0.3s ease-in-out;
+}
+.mode-switch .handle {
+  background-color: var(--mode-bg);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  inset-inline-end: 0;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+.mode-switch .handle img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  padding: 5px;
+}
+.mode-switch .handle img.dark {
+  visibility: hidden;
+  opacity: 0;
+}
+.mode-switch input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+.mode-switch input:checked ~ .bg {
+  background-color: #8b8b8b;
+}
+.mode-switch input:checked ~ .handle {
+  inset-inline-end: calc(100% - 28px);
+}
+.mode-switch input:checked ~ .handle img {
+  visibility: hidden;
+  opacity: 0;
+}
+.mode-switch input:checked ~ .handle img.dark {
+  visibility: visible;
+  opacity: 1;
 }
 
 header {
@@ -241,7 +311,7 @@ header {
   transition: background-color 0.3s ease-in-out;
 }
 header.fixed {
-  background-color: #fff;
+  background-color: var(--mode-bg);
 }
 header.fixed .header-content {
   padding: 11px 0 9px;
@@ -265,7 +335,7 @@ header.fixed .logo img {
 header.fixed .header-btn {
   border-color: #ceaa41;
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
 }
 
 .menu-btn {
@@ -279,7 +349,7 @@ header.fixed .header-btn {
   transition: color 0.3s ease-in-out;
 }
 .fixed .menu-btn {
-  color: #043750;
+  color: var(--text-color);
 }
 .menu-btn:hover {
   color: #ceaa41;
@@ -375,11 +445,11 @@ html[dir=ltr] .header-list a.lang {
 }
 .sublist a {
   font-size: 14px;
-  color: #043750;
+  color: var(--text-color);
 }
 
 header.fixed .header-list a {
-  color: #043750;
+  color: var(--text-color);
 }
 header.fixed .header-list a:hover {
   color: #ceaa41;
@@ -553,7 +623,7 @@ header.fixed .header-list a:hover {
 
 .sec-title {
   text-align: center;
-  color: #043750;
+  color: var(--text-color);
   font-weight: 700;
   font-size: 36px;
   margin-bottom: 35px;
@@ -630,7 +700,7 @@ header.fixed .header-list a:hover {
 .sec-more:hover {
   border-color: #ceaa41;
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
 }
 .sec-more.projects-more {
   margin: 0 0 70px;
@@ -654,11 +724,11 @@ header.fixed .header-list a:hover {
 .sec-more.light-more:hover {
   border-color: #ceaa41;
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
 }
 
 .services-section {
-  background-color: #fff;
+  background-color: var(--mode-bg);
   padding: 115px 0 120px;
   overflow: hidden;
 }
@@ -768,7 +838,7 @@ header.fixed .header-list a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #043750;
+  color: var(--text-color);
   font-size: 24px;
   font-weight: 700;
   text-decoration: none;
@@ -803,7 +873,7 @@ header.fixed .header-list a:hover {
 }
 
 .clients-section {
-  background-color: #fff;
+  background-color: var(--mode-bg);
   padding: 135px 0 120px;
   overflow: hidden;
 }
@@ -828,7 +898,7 @@ header.fixed .header-list a:hover {
 
 .join-link {
   font-size: 24px;
-  color: #043750;
+  color: var(--text-color);
   font-weight: 700;
   width: 235px;
   height: 70px;
@@ -856,7 +926,7 @@ header.fixed .header-list a:hover {
 }
 
 .news-section {
-  background-color: #fff;
+  background-color: var(--mode-bg);
   padding: 120px 0;
   overflow: hidden;
 }
@@ -976,7 +1046,7 @@ header.fixed .header-list a:hover {
 }
 .scroll-btn span {
   width: 2px;
-  background-color: #fff;
+  background-color: var(--mode-bg);
   height: 9px;
   display: block;
   margin: auto;
@@ -1053,14 +1123,14 @@ header.fixed .header-list a:hover {
   overflow: hidden;
   font-size: 18px;
   font-weight: 700;
-  color: #043750;
+  color: var(--text-color);
   margin: 0;
   height: 23px;
 }
 .service-item .name-holder {
   font-size: 18px;
   font-weight: 700;
-  color: #043750;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease-in-out;
 }
@@ -1140,7 +1210,7 @@ header.fixed .header-list a:hover {
 }
 .project-item .project-service:hover {
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
 }
 .project-item .project-name {
   position: absolute;
@@ -1231,8 +1301,8 @@ header.fixed .header-list a:hover {
   margin-inline-start: 10px;
 }
 .custom-nav-tabs .nav-tab-link:hover, .custom-nav-tabs .nav-tab-link.active {
-  color: #043750;
-  background-color: #fff;
+  color: var(--text-color);
+  background-color: var(--mode-bg);
 }
 
 .custom-tab-content {
@@ -1393,7 +1463,7 @@ header.fixed .header-list a:hover {
 }
 .news-item .news-title {
   font-size: 16px;
-  color: #043750;
+  color: var(--text-color);
   font-weight: 700;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1404,7 +1474,7 @@ header.fixed .header-list a:hover {
 }
 .news-item .title-holder {
   font-size: 16px;
-  color: #043750;
+  color: var(--text-color);
   font-weight: 700;
   text-decoration: none;
   line-height: 1.65;
@@ -1442,6 +1512,12 @@ footer .pattern {
   opacity: 0.2;
   inset-inline-end: 0;
   bottom: 50px;
+}
+@media (max-width: 767px) {
+  footer .pattern {
+    top: -300px;
+    bottom: auto;
+  }
 }
 
 .footer-content {
@@ -1500,7 +1576,7 @@ footer .pattern {
 }
 .social:hover {
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
 }
 
 @media (max-width: 767px) {
@@ -1594,8 +1670,8 @@ html[dir=ltr] .footer-list-body a:hover {
   height: 42px;
   padding: 0 20px;
   border: 2px solid #fff;
-  background-color: #fff;
-  color: #043750;
+  background-color: var(--mode-bg);
+  color: var(--text-color);
   font-size: 14px;
   font-family: "en";
   transition: border-color 0.3s ease-in-out;
@@ -1638,7 +1714,7 @@ html[dir=ltr] .newsletter-input::placeholder {
   align-items: center;
   justify-content: center;
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
   font-size: 12px;
   font-weight: 700;
   border: none;
@@ -1757,7 +1833,7 @@ html[dir=ltr] .newsletter-input::placeholder {
 }
 .arrow-top:hover {
   background-color: #ceaa41;
-  color: #043750;
+  color: var(--text-color);
 }
 
 @keyframes ringing {
@@ -1808,7 +1884,7 @@ html[dir=ltr] .newsletter-input::placeholder {
   transition: color 0.3s ease-in-out;
 }
 .fixed .menu-close {
-  color: #043750;
+  color: var(--text-color);
 }
 .menu-close:hover {
   color: #ceaa41;
@@ -1825,7 +1901,7 @@ html[dir=ltr] .newsletter-input::placeholder {
     top: 0;
     bottom: 0;
     inset-inline-start: -300px;
-    background-color: #fff;
+    background-color: var(--mode-bg);
     width: 300px;
     max-width: 90%;
     overflow-y: auto;
@@ -1847,12 +1923,12 @@ html[dir=ltr] .newsletter-input::placeholder {
     display: block;
   }
   .header-nav .header-list a {
-    color: #043750;
+    color: var(--text-color);
     width: 100%;
     justify-content: space-between;
   }
   .header-nav .header-list a:hover {
-    color: #043750;
+    color: var(--text-color);
   }
   .header-nav .header-list a i {
     font-size: 12px;

@@ -1,5 +1,8 @@
 $(window).on("load", function () {
-  $("body").removeClass("overflow");
+  $(".preloader").fadeOut("500", function () {
+    $(this).remove();
+    $("body").removeClass("overflow");
+  });
 });
 $(document).ready(function () {
   /************************************ Fixed Header ************************************/

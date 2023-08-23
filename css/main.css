@@ -111,6 +111,52 @@ html[dir=ltr] body {
   font-family: "en";
 }
 
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 9999;
+}
+.preloader .preloader-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.preloader .preloader-logo-cont {
+  position: relative;
+  width: 150px;
+}
+.preloader .preloader-logo-cont .colored {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  animation: loader 5s linear infinite;
+}
+.preloader .preloader-logo-cont .colored img {
+  position: absolute;
+  bottom: 0;
+}
+.preloader .preloader-logo-cont .filterd {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+@keyframes loader {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
 .header-content {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -851,6 +897,7 @@ header.fixed .header-list a:hover {
 .main-slide .img-holder {
   position: relative;
   z-index: 1;
+  height: 100%;
 }
 .main-slide .img-holder img {
   width: 100%;

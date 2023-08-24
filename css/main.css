@@ -1904,16 +1904,16 @@ html[dir=ltr] .newsletter-input::placeholder {
   max-width: 90%;
   overflow-y: auto;
   height: auto;
-  z-index: 999;
+  z-index: 99;
   padding-top: 10vh;
   padding-bottom: 10vh;
   padding-left: 25px;
   padding-right: 25px;
   inset-inline-start: -300px;
-  transition-delay: 0.3s;
-  transition: all 0.6s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .aside-nav.active {
+  transition-delay: 0.3s;
   inset-inline-start: 0;
 }
 .aside-nav::-webkit-scrollbar {

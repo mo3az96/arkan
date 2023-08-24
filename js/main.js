@@ -23,8 +23,8 @@ $(document).ready(function () {
   /************************************ Fixed Header ************************************/
   if ($(window).width() <= 1199) {
     $(".menu-btn").click(function (e) {
-      $(".page-content").addClass("open").height($(window).height());
       $(".aside-nav").addClass("active");
+      $(".page-content").addClass("open").height($(window).height());
       $(".overlay").show();
     });
     $(".aside-list>li>a").click(function (e) {
@@ -42,8 +42,8 @@ $(document).ready(function () {
       }
     });
     $(".overlay, .close-btn").click(function (e) {
-      $(".page-content").removeClass("open");
       $(".aside-nav").removeClass("active");
+      $(".page-content").removeClass("open");
       $(".overlay").hide();
     });
   }

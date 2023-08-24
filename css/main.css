@@ -416,12 +416,6 @@ header.fixed .header-btn {
 .header-list a:hover {
   color: var(--main-color);
 }
-html[dir=rtl] .header-list a.lang {
-  font-family: "en";
-}
-html[dir=ltr] .header-list a.lang {
-  font-family: "ar";
-}
 
 .sublist {
   position: absolute;
@@ -467,6 +461,13 @@ header.fixed .header-list a {
 }
 header.fixed .header-list a:hover {
   color: var(--main-color);
+}
+
+html[dir=rtl] .lang {
+  font-family: "en";
+}
+html[dir=ltr] .lang {
+  font-family: "ar";
 }
 
 .main-content {
@@ -2014,7 +2015,7 @@ html[dir=ltr] .newsletter-input::placeholder {
 }
 
 body {
-  background: linear-gradient(-45deg, #043750, #001c27);
+  background: linear-gradient(-45deg, var(--sec-color), var(--main-color), var(--sec-color));
   background-size: 400% 400%;
 }
 body.overflow {

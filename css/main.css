@@ -1904,7 +1904,7 @@ html[dir=ltr] .newsletter-input::placeholder {
   max-width: 90%;
   overflow-y: auto;
   height: auto;
-  z-index: 99;
+  z-index: 98;
   padding-top: 10vh;
   padding-bottom: 10vh;
   padding-left: 25px;
@@ -2036,6 +2036,8 @@ body.overflow {
 .page-content {
   transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
   transform-origin: center;
+  position: relative;
+  z-index: 99;
 }
 .page-content.open {
   overflow: hidden;

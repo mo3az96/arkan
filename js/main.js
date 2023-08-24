@@ -23,16 +23,12 @@ $(document).ready(function () {
   /************************************ Fixed Header ************************************/
   if ($(window).width() <= 1199) {
     $(".menu-btn").click(function (e) {
-      $(".overlay").fadeIn(500);
-      $(".header-nav").addClass("active");
+      $(".page-content").addClass("open");
+      $(".aside-nav").addClass("active");
       $("body").addClass("overflow");
+      $(".overlay").show();
     });
-    $(".menu-close,.overlay").click(function (e) {
-      $(".overlay").fadeOut(500);
-      $(".header-nav").removeClass("active");
-      $("body").removeClass("overflow");
-    });
-    $(".header-list>li>a").click(function (e) {
+    $(".aside-list>li>a").click(function (e) {
       if ($(this).siblings("ul").length) {
         e.preventDefault();
         e.stopPropagation();
@@ -45,6 +41,12 @@ $(document).ready(function () {
         }
         $(".header-list>li>a").not(this).siblings().slideUp(500);
       }
+    });
+    $(".overlay, .close-btn").click(function (e) {
+      $(".page-content").removeClass("open");
+      $(".aside-nav").removeClass("active");
+      $("body").removeClass("overflow");
+      $(".overlay").hide();
     });
   }
   /************************************ Fixed Header ************************************/

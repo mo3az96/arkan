@@ -25,7 +25,7 @@ $(document).ready(function () {
     $(".menu-btn").click(function (e) {
       $(".page-content").addClass("open");
       $(".aside-nav").addClass("active");
-      $("body").addClass("overflow");
+
       $(".overlay").show();
     });
     $(".aside-list>li>a").click(function (e) {
@@ -45,7 +45,7 @@ $(document).ready(function () {
     $(".overlay, .close-btn").click(function (e) {
       $(".page-content").removeClass("open");
       $(".aside-nav").removeClass("active");
-      $("body").removeClass("overflow");
+
       $(".overlay").hide();
     });
   }

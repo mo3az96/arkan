@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/line-awesome.css" />
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/fancybox.css" />
+    <link rel="stylesheet" href="css/sal.css" />
     <link rel="stylesheet" href="css/main.css" />
   </head>
 
@@ -134,6 +135,11 @@
                       <img src="images/hero/01.jpg" class="img-fluid" />
                     </div>
                   </div>
+                  <!-- <div class="slide-video">
+                    <div class="video-holder">
+                      <video src="images/test.mp4" class="img-fluid" controls></video>
+                    </div>
+                  </div> -->
                   <div class="slide-text">
                     <div class="container">
                       <div class="text-holder">
@@ -189,9 +195,15 @@
     <section class="services-section" id="second-section">
       <div class="container">
         <div class="services-content">
-          <h2 class="sec-title">خدمات نقدمها بإحترافية</h2>
+          <h2 class="sec-title" data-sal="slide-down">
+            خدمات نقدمها بإحترافية
+          </h2>
 
-          <div class="services-slider custom-slider">
+          <div
+            class="services-slider custom-slider"
+            data-sal="flip-up"
+            style="--sal-delay: 0.2s"
+          >
             <div class="swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -267,7 +279,7 @@
 
     <!-- Start Projects -->
     <section class="projects-section dark-sec">
-      <div class="pattern">
+      <div class="pattern" data-sal="zoom-in" style="--sal-delay: 0.4s">
         <img src="images/pattern.png" />
       </div>
       <div class="container">
@@ -275,11 +287,19 @@
           <div class="row">
             <div class="col-xl-3 col-12">
               <div class="projects-head">
-                <h2 class="sec-title">
+                <h2 class="sec-title" data-sal="slide-down">
                   مشــــــاريع تشرفنــــــــا تنفيذهــــا
                 </h2>
-                <a href="#!" class="sec-more projects-more"> استعرض المزيد </a>
-                <div class="slider-tools">
+                <div class="more-cont" data-sal="slide-up">
+                  <a href="#!" class="sec-more projects-more">
+                    استعرض المزيد
+                  </a>
+                </div>
+                <div
+                  class="slider-tools"
+                  data-sal="slide-up"
+                  style="--sal-delay: 0.2s"
+                >
                   <div class="swiper-btn-prev swiper-btn">
                     <i class="las la-arrow-right"></i>
                   </div>
@@ -290,7 +310,11 @@
               </div>
             </div>
             <div class="col-xl-9 col-12">
-              <div class="projects-slider custom-slider">
+              <div
+                class="projects-slider custom-slider"
+                data-sal="slide-right"
+                style="--sal-delay: 0.3s"
+              >
                 <div class="swiper">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -379,11 +403,13 @@
           </div>
         </div>
         <div class="price-request">
-          <h3 class="sec-title">
+          <h3 class="sec-title" data-sal="slide-down">
             <span>لديك مشروع؟</span> ارسل لنا التفاصيل ويمكننا أن نتولى الأمر من
             هناك
           </h3>
-          <a href="#!" class="request-link"> اطلب عرض سعر </a>
+          <div class="link-cont" data-sal="slide-up" style="--sal-delay: 0.2s">
+            <a href="#!" class="request-link"> اطلب عرض سعر </a>
+          </div>
         </div>
       </div>
     </section>
@@ -396,8 +422,12 @@
     >
       <div class="container">
         <div class="about-content">
-          <h2 class="sec-title">أركان المدينة</h2>
-          <div class="nav custom-nav-tabs">
+          <h2 class="sec-title" data-sal="slide-down">أركان المدينة</h2>
+          <div
+            class="nav custom-nav-tabs"
+            data-sal="slide-up"
+            style="--sal-delay: 0.2s"
+          >
             <button
               class="nav-tab-link active"
               data-bs-toggle="tab"
@@ -440,7 +470,7 @@
             </button>
           </div>
 
-          <div class="tab-content custom-tab-content">
+          <div class="tab-content custom-tab-content" data-sal="zoom-in">
             <div class="tab-pane fade show active" id="about" role="tabpanel">
               <div class="about-tab-cont">
                 <p class="tab-paragraph">
@@ -633,9 +663,13 @@
     <section class="clients-section">
       <div class="container">
         <div class="clients-content">
-          <h3 class="sec-title">عملاؤنا الكرام</h3>
+          <h3 class="sec-title" data-sal="slide-down">عملاؤنا الكرام</h3>
 
-          <div class="clients-slider custom-slider">
+          <div
+            class="clients-slider custom-slider"
+            data-sal="slide-up"
+            style="--sal-delay: 0.2s"
+          >
             <div class="swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -697,8 +731,9 @@
             </div>
             <div class="swiper-pagination"></div>
           </div>
-
-          <a href="#!" class="sec-more light-more">استعرض المزيد</a>
+          <div class="more-cont" data-sal="flip-up" style="--sal-delay: 0.2s">
+            <a href="#!" class="sec-more light-more">استعرض المزيد</a>
+          </div>
         </div>
       </div>
     </section>
@@ -711,10 +746,12 @@
     >
       <div class="container">
         <div class="join-content">
-          <h3 class="sec-title">
+          <h3 class="sec-title" data-sal="slide-down">
             انضم إلى قائمة عملائنا المميزين واستفد بخدماتنا الإستثنائية
           </h3>
-          <a href="#!" class="join-link">اتصل بنا الآن</a>
+          <div class="link-cont" data-sal="slide-up" style="--sal-delay: 0.2s">
+            <a href="#!" class="join-link">اتصل بنا الآن</a>
+          </div>
         </div>
       </div>
     </section>
@@ -724,9 +761,13 @@
     <section class="news-section">
       <div class="container">
         <div class="news-content">
-          <h3 class="sec-title">آخر الأخبار</h3>
+          <h3 class="sec-title" data-sal="slide-down">آخر الأخبار</h3>
 
-          <div class="news-slider custom-slider">
+          <div
+            class="news-slider custom-slider"
+            data-sal="slide-up"
+            style="--sal-delay: 0.2s"
+          >
             <div class="swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -832,7 +873,9 @@
             <div class="swiper-pagination"></div>
           </div>
 
-          <a href="#!" class="sec-more light-more">استعرض المزيد</a>
+          <div class="more-cont" data-sal="flip-up" style="--sal-delay: 0.2s">
+            <a href="#!" class="sec-more light-more">استعرض المزيد</a>
+          </div>
         </div>
       </div>
     </section>
@@ -847,7 +890,7 @@
         <div class="footer-content">
           <div class="row">
             <div class="col-lg-4 col-12">
-              <div class="footer-about">
+              <div class="footer-about" data-sal="slide-down">
                 <div class="footer-logo">
                   <img src="images/logo-light.png" class="img-fluid" />
                 </div>
@@ -871,7 +914,11 @@
               </div>
             </div>
             <div class="col-lg-2 col-md-3 col-12">
-              <div class="footer-list">
+              <div
+                class="footer-list"
+                data-sal="slide-down"
+                style="--sal-delay: 0.2s"
+              >
                 <h6 class="footer-title footer-list-title">خدماتنا</h6>
                 <ul class="footer-list-body list-unstyled">
                   <li>
@@ -905,7 +952,11 @@
               </div>
             </div>
             <div class="col-lg-2 col-md-3 col-12">
-              <div class="footer-list">
+              <div
+                class="footer-list"
+                data-sal="slide-down"
+                style="--sal-delay: 0.4s"
+              >
                 <h6 class="footer-title footer-list-title">روابط سريعة</h6>
                 <ul class="footer-list-body list-unstyled">
                   <li>
@@ -936,7 +987,11 @@
               </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12">
-              <div class="newsletter">
+              <div
+                class="newsletter"
+                data-sal="slide-down"
+                style="--sal-delay: 0.6s"
+              >
                 <h6 class="footer-title newsletter-title">ألنشرة البريدية</h6>
                 <p class="newsletter-desc">
                   اشترك في النشرة البريدية ليصلك جديد أخبار الشركة
@@ -988,6 +1043,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/fancybox.umd.js"></script>
+    <script src="js/sal.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

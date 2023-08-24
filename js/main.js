@@ -6,11 +6,20 @@ $(window).on("load", function () {
 
   var checked = localStorage.getItem("mode");
   document.body.classList.add(checked);
-  if (checked == "darkMode" || scheme) {
+  if (checked == "darkMode") {
     document.querySelectorAll(".mode-switch input")[0].checked = checked;
   }
 });
 $(document).ready(function () {
+  if ($(window).width() >= 991) {
+    sal({
+      once: true,
+    });
+  } else {
+    sal({
+      disabled: true,
+    });
+  }
   /************************************ Fixed Header ************************************/
   if ($(window).width() <= 1199) {
     $(".menu-btn").click(function (e) {
@@ -83,6 +92,7 @@ $(document).ready(function () {
       "swing"
     );
   });
+
   $(".arrow-top").click(function () {
     $("html,body").animate(
       {
@@ -163,6 +173,9 @@ $(document).ready(function () {
       enabled: false,
     },
     loop: true,
+    autoplay: {
+      delay: 2000,
+    },
     breakpoints: {
       0: {
         slidesPerView: 2,

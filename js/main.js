@@ -50,8 +50,10 @@ $(document).ready(function () {
     $(".overlay, .close-btn").click(function (e) {
       $(".aside-nav").removeClass("active");
       $(".page-content").removeClass("open");
-      $("body,html").removeClass("overflow");
       $(".overlay").hide();
+      setTimeout(function () {
+        $("body,html").removeClass("overflow");
+      }, 1000);
     });
   }
   /************************************ Fixed Header ************************************/

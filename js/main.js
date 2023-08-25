@@ -5,9 +5,14 @@ $(window).on("load", function () {
   });
 
   var checked = localStorage.getItem("mode");
-  document.body.classList.add(checked);
-  if (checked == "darkMode") {
-    document.querySelectorAll(".mode-switch input")[0].checked = checked;
+  var scheme =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (checked == "darkMode" || scheme) {
+    if (document.querySelectorAll(".mode-switch input").length > 0) {
+      document.querySelectorAll(".mode-switch input")[0].checked = checked;
+    }
+    document.body.classList.add(checked);
   }
 });
 $(document).ready(function () {
@@ -20,11 +25,12 @@ $(document).ready(function () {
       disabled: true,
     });
   }
-  /************************************ Fixed Header ************************************/
+  /************************************ Side Menu ************************************/
   if ($(window).width() <= 1199) {
     $(".menu-btn").click(function (e) {
       $(".aside-nav").addClass("active");
       $(".page-content").addClass("open").height($(window).height());
+      $("body,html").addClass("overflow");
       $(".overlay").show();
     });
     $(".aside-list>li>a").click(function (e) {
@@ -44,6 +50,7 @@ $(document).ready(function () {
     $(".overlay, .close-btn").click(function (e) {
       $(".aside-nav").removeClass("active");
       $(".page-content").removeClass("open");
+      $("body,html").removeClass("overflow");
       $(".overlay").hide();
     });
   }
@@ -281,6 +288,41 @@ $(document).ready(function () {
       $(".footer-list-title").not(this).siblings().slideUp(500);
     });
   }
+  /************************************ Project Slider ************************************/
+  var projectSwiper = new Swiper(".main-imgs-slider .swiper", {
+    a11y: {
+      enabled: false,
+    },
+    spaceBetween: 10,
+    loop: true,
+    speed: 500,
+    centeredSlides: true,
+    // autoplay: {
+    //   delay: 5000,
+    // },
+    navigation: {
+      nextEl: ".main-imgs-slider .swiper-button-next",
+      prevEl: ".main-imgs-slider .swiper-button-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+      },
+      767: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+      },
+      1199: {
+        slidesPerView: 2.129,
+        spaceBetween: 10,
+      },
+    },
+  });
 });
 
 function modeSwitch(checkBox) {

@@ -5,14 +5,9 @@ $(window).on("load", function () {
   });
 
   var checked = localStorage.getItem("mode");
-  var scheme =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (checked == "darkMode" || scheme) {
-    if (document.querySelectorAll(".mode-switch input").length > 0) {
-      document.querySelectorAll(".mode-switch input")[0].checked = checked;
-    }
-    document.body.classList.add(checked);
+  document.body.classList.add(checked);
+  if (checked == "darkMode") {
+    document.querySelectorAll(".mode-switch input")[0].checked = checked;
   }
 });
 $(document).ready(function () {
@@ -309,20 +304,58 @@ $(document).ready(function () {
     breakpoints: {
       0: {
         slidesPerView: 1,
-        spaceBetween: 15,
+        spaceBetween: 10,
       },
       767: {
-        slidesPerView: 2,
-        spaceBetween: 15,
+        slidesPerView: 1.5,
+        spaceBetween: 10,
       },
       992: {
-        slidesPerView: 3,
-        spaceBetween: 15,
+        slidesPerView: 2,
+        spaceBetween: 10,
       },
       1199: {
         slidesPerView: 2.129,
         spaceBetween: 10,
       },
+    },
+  });
+  /************************************ Accordion ************************************/
+  $(".accordion-head").click(function () {
+    $(this).toggleClass("active");
+    $(this).siblings().slideToggle(500);
+  });
+  /************************************ Related Slider ************************************/
+  var relatedSwiper = new Swiper(".related-slider .swiper", {
+    a11y: {
+      enabled: false,
+    },
+    loop: true,
+
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 15,
+        centeredSlides: false,
+      },
+      767: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 15,
+        centeredSlides: true,
+      },
+      1199: {
+        slidesPerView: 3,
+        spaceBetween: 31,
+        centeredSlides: true,
+      },
+    },
+    pagination: {
+      el: ".related-slider .swiper-pagination",
+      clickable: true,
     },
   });
 });

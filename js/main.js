@@ -11,15 +11,18 @@ $(window).on("load", function () {
   }
 });
 $(document).ready(function () {
-  if ($(window).width() >= 991) {
-    sal({
-      once: true,
-    });
-  } else {
-    sal({
-      disabled: true,
-    });
-  }
+  sal({
+    once: true,
+  });
+  // if ($(window).width() >= 991) {
+  //   sal({
+  //     once: true,
+  //   });
+  // } else {
+  //   sal({
+  //     disabled: true,
+  //   });
+  // }
   /************************************ Side Menu ************************************/
   if ($(window).width() <= 1199) {
     $(".menu-btn").click(function (e) {
@@ -48,7 +51,7 @@ $(document).ready(function () {
       $(".overlay").hide();
       setTimeout(function () {
         $("body,html").removeClass("overflow");
-      }, 1000);
+      }, 750);
     });
   }
   /************************************ Fixed Header ************************************/
@@ -97,6 +100,11 @@ $(document).ready(function () {
     );
   });
 
+  $(window).scroll(function () {
+    $(this).scrollTop() >= 500
+      ? $(".arrow-top").fadeIn(500)
+      : $(".arrow-top").fadeOut(500);
+  });
   $(".arrow-top").click(function () {
     $("html,body").animate(
       {

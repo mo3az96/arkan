@@ -124,60 +124,6 @@ html[dir=ltr] body {
   font-family: "en";
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: transparent;
-  z-index: 9999;
-  display: none;
-}
-
-body {
-  background-size: 400% 400%;
-}
-body.overflow {
-  background: linear-gradient(-45deg, var(--main-color), var(--sec-color));
-  animation: gradient 25s ease infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-.page-content {
-  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-  transform-origin: center;
-  position: relative;
-  z-index: 99;
-}
-.page-content.open {
-  overflow: hidden;
-}
-html[dir=rtl] .page-content.open {
-  transform: scale(0.835) translateX(-466px) translateZ(0) !important;
-}
-html[dir=ltr] .page-content.open {
-  transform: scale(0.835) translateX(466px) translateZ(0) !important;
-}
-@media (max-width: 767px) {
-  html[dir=rtl] .page-content.open {
-    transform: scale(0.84) translateX(-93vw) translateZ(0) !important;
-  }
-  html[dir=ltr] .page-content.open {
-    transform: scale(0.84) translateX(93vw) translateZ(0) !important;
-  }
-}
-
 .aside-nav {
   position: fixed;
   top: 0;
@@ -189,7 +135,7 @@ html[dir=ltr] .page-content.open {
   height: auto;
   z-index: 98;
   padding-top: 10vh;
-  padding-bottom: 10vh;
+  padding-bottom: 5vh;
   padding-left: 25px;
   padding-right: 25px;
   inset-inline-start: -300px;
@@ -231,12 +177,13 @@ html[dir=ltr] .page-content.open {
   color: var(--text-color);
 }
 .aside-nav .aside-list {
-  padding: 50px 0;
-  height: 100%;
+  padding: 0 0 30px;
   margin: auto;
+  position: relative;
+  z-index: 99;
 }
 .aside-nav .aside-list li {
-  margin: 15px 0;
+  padding: 10px 0;
   height: auto;
   width: 100%;
   display: block;
@@ -278,12 +225,95 @@ html[dir=ltr] .page-content.open {
   display: none;
   background-color: transparent;
 }
+.aside-nav .sublist li {
+  padding: 7px 0;
+}
 .aside-nav .sublist::after {
   display: none;
 }
 .aside-nav .sublist a {
   font-weight: 400;
   font-size: 16px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 9999;
+  display: none;
+}
+
+.side-logo {
+  width: 85px;
+  margin: 0 auto 30px;
+}
+
+body {
+  position: relative;
+}
+body::after {
+  content: "";
+  background-image: url(../images/footer.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  opacity: 0.2;
+  inset-inline-start: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: none;
+}
+body.overflow {
+  background-color: var(--sec-color);
+  animation: gradient 25s ease infinite;
+}
+body.overflow:after {
+  display: block;
+}
+body.overflow .menu-btn {
+  pointer-events: none;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.page-content {
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  transform-origin: center;
+  position: relative;
+  z-index: 99;
+}
+.page-content.open {
+  overflow: hidden;
+}
+html[dir=rtl] .page-content.open {
+  transform: scale(0.835) translateX(-466px) translateZ(0) !important;
+}
+html[dir=ltr] .page-content.open {
+  transform: scale(0.835) translateX(466px) translateZ(0) !important;
+}
+@media (max-width: 767px) {
+  html[dir=rtl] .page-content.open {
+    transform: scale(0.84) translateX(-93vw) translateZ(0) !important;
+  }
+  html[dir=ltr] .page-content.open {
+    transform: scale(0.84) translateX(93vw) translateZ(0) !important;
+  }
 }
 
 .preloader {
@@ -2343,21 +2373,21 @@ html[dir=ltr] .newsletter-input::placeholder {
 }
 
 .arrow-top {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   inset-inline-start: 20px;
   border: none;
-  background-color: rgba(var(--mode-rgb), 0.1);
+  background-color: rgba(20, 20, 20, 0.1);
   width: 38px;
   height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  line-height: 38px;
+  text-align: center;
   color: #fff;
   font-size: 18px;
   border-radius: 50%;
   z-index: 99;
   transition: 0.3s ease-in-out;
+  display: none;
   transition-property: background-color, color;
 }
 .arrow-top:hover {
@@ -2399,4 +2429,7 @@ html[dir=ltr] .newsletter-input::placeholder {
 }
 .darkMode .project-page {
   background-color: #043750;
+}
+.darkMode .arrow-top {
+  background-color: rgba(255, 255, 255, 0.1);
 }/*# sourceMappingURL=main.css.map */
